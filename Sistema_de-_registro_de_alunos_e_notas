@@ -1,0 +1,38 @@
+ Sistema de Gerenciamento Escolar
+
+Descrição:
+
+Este projeto consiste na criação de um sistema de gerenciamento escolar utilizando um banco de dados MySQL. O sistema tem como objetivo armazenar informações sobre alunos, cursos e notas, permitindo a realização de consultas, atualizações e exclusões de dados de forma eficiente.
+
+Estrutura do Banco de Dados:
+
+Tabela Alunos
+
+id_aluno (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único do aluno.
+nome (VARCHAR(100)): Nome completo do aluno.
+data_nascimento (DATE): Data de nascimento do aluno.
+endereco (VARCHAR(255)): Endereço residencial do aluno.
+Tabela Cursos
+
+id_curso (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único do curso.
+nome_curso (VARCHAR(100)): Nome do curso.
+descricao (TEXT): Descrição do curso.
+Tabela Notas
+
+id_nota (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único da nota.
+id_aluno (INT): Referência ao aluno (chave estrangeira).
+id_curso (INT): Referência ao curso (chave estrangeira).
+nota (DECIMAL(5,2)): Nota obtida pelo aluno no curso.
+Operações Principais:
+
+Inserção de Dados: Adicionar alunos, cursos e notas ao banco de dados.
+Consultas:
+Listar todos os alunos e suas notas por curso.
+Calcular a média das notas para cada curso.
+Encontrar o aluno com a maior nota em cada curso.
+Atualização de Dados:
+Atualizar a nota de um aluno em um curso específico.
+Modificar o endereço de um aluno.
+Exclusão de Dados:
+Excluir um aluno e suas notas associadas.
+Remover um curso e todas as notas associadas a esse curso.
