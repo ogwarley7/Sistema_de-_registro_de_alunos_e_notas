@@ -31,7 +31,6 @@ O banco de dados possui três tabelas principais:
 
 Você pode adicionar novos alunos, cursos e notas ao banco de dados com os seguintes comandos SQL:
 
-```sql
 -- Inserir alunos
 INSERT INTO Alunos (nome, data_nascimento, endereco) VALUES
 ('Maria Silva', '2000-05-15', 'Rua das Flores, 123'),
@@ -51,3 +50,56 @@ INSERT INTO Notas (id_aluno, id_curso, nota) VALUES
 (2, 1, 7.5),
 (2, 3, 9.0),
 (3, 2, 8.5);
+Consultas
+Aqui estão algumas consultas úteis que você pode executar:
+
+Listar todos os alunos e suas notas por curso:
+SELECT a.nome AS aluno, c.nome_curso AS curso, n.nota
+FROM Notas n
+JOIN Alunos a ON n.id_aluno = a.id_aluno
+JOIN Cursos c ON n.id_curso = c.id_curso;
+Calcular a média das notas por curso:
+SELECT c.nome_curso AS curso, AVG(n.nota) AS media_nota
+FROM Notas n
+JOIN Cursos c ON n.id_curso = c.id_curso
+GROUP BY c.nome_curso;
+Encontrar o aluno com a maior nota em cada curso:
+SELECT c.nome_curso AS curso, a.nome AS aluno, n.nota
+FROM Notas n
+JOIN Cursos c ON n.id_curso = c.id_curso
+JOIN Alunos a ON n.id_aluno = a.id_aluno
+WHERE n.nota = (
+    SELECT MAX(nota)
+    FROM Notas n2
+    WHERE n2.id_curso = n.id_curso
+);
+Atualização de Dados
+Para atualizar informações no banco de dados:
+
+Atualizar a nota de um aluno em um curso específico:
+UPDATE Notas
+SET nota = 9.0
+WHERE id_aluno = 1 AND id_curso = 2;
+Modificar o endereço de um aluno:
+UPDATE Alunos
+SET endereco = 'Avenida das Acácias, 321'
+WHERE id_aluno = 1;
+Exclusão de Dados
+Para remover dados do banco de dados:
+
+Excluir um aluno e suas notas associadas:
+DELETE FROM Alunos
+WHERE id_aluno = 3;
+Remover um curso e todas as notas associadas a esse curso:
+DELETE FROM Cursos
+WHERE id_curso = 2;
+Requisitos
+MySQL Server
+Instalação
+Clone o repositório:
+git clone https://github.com/seu-usuario/seu-repositorio.git
+Acesse o diretório do projeto:
+cd seu-repositorio
+Importe o banco de dados no MySQL:
+mysql -u seu-usuario -p < script.sql
+Substitua seu-usuario pelo seu nome de usuário MySQL e script.sql pelo nome do arquivo SQL que contém os comandos do banco de dados.
