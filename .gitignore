@@ -1,0 +1,35 @@
+# Ignorar arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de configuração do editor
+.vscode/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# Ignorar arquivos temporários de compilação
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignorar arquivos de banco de dados locais
+*.sql
+*.sql.gz
+
+# Ignorar arquivos de cache
+.cache/
+*.pyc
+__pycache__/
+
+# Ignorar diretórios de build e distribuição
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Ignorar arquivos de ambientes virtuais
+venv/
+env/
